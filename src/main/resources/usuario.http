@@ -1,0 +1,66 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+
+POST http://localhost:8080/usuario
+Content-Type: application/json
+
+{
+  "nome": "Otto",
+  "email": "otto@gmail.com",
+  "cpf": "10171080483",
+  "senha": "123123"
+}
+
+###
+
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "nome": "Luana",
+  "cpf": "10171080483",
+  "email": "luana@email.com",
+  "telefone": "83998362522"
+}
+
+###
+GET http://localhost:8080/clientes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6Im90dG9AZW1haWwuY29tIiwiZXhwIjoxNzQzNDQzOTEyfQ.TTtZdz4pzds5vrNcwtmUtR1wfcwUxvnNl3Abwi0z12Y
+
+###
+PUT http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "id": "efcf7c81-e0b8-4fdc-ac8b-14b8cfd2ed29",
+  "nome": "Luana",
+  "cpf": "10171080483",
+  "email": "luana@email.com",
+  "telefone": "83998362522",
+  "endereco": {
+    "cidade": "Joao Pessoa"
+  }
+}
+
+###
+
+POST localhost:8080/categorias
+Content-Type: application/json
+
+{
+  "nome": "Eletrônicos Domesticos",
+  "tipo": "RECEITA"
+}
+
+###
+GET http://localhost:8080/categorias
+Content-Type: application/json
+
+
+###
+DELETE http://localhost:8080/categorias?id=a5b33068-47e8-440c-a8d5-80028030e6d3
+Content-Type: application/json
