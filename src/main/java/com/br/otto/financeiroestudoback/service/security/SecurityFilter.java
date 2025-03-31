@@ -1,4 +1,4 @@
-package com.br.otto.financeiroestudoback.service;
+package com.br.otto.financeiroestudoback.service.security;
 
 import com.br.otto.financeiroestudoback.model.Cliente;
 import com.br.otto.financeiroestudoback.repository.ClienteRepository;

@@ -1,4 +1,4 @@
-package com.br.otto.financeiroestudoback.service;
+package com.br.otto.financeiroestudoback.service.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

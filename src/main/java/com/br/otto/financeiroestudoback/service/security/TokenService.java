@@ -1,4 +1,4 @@
-package com.br.otto.financeiroestudoback.service;
+package com.br.otto.financeiroestudoback.service.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
