@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // permite para todas as rotas
-                        .allowedOrigins("http://localhost:4200", "https://java-auth-jwt.onrender.com")// frontend Angular
+                        .allowedOrigins("http://localhost:4200",  "https://angular-financa-19.vercel.app")// frontend Angular
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true); // se estiver usando cookies/autenticação
