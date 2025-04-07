@@ -50,7 +50,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // 👇 Ajuste aqui conforme o domínio do seu frontend (ex: Angular rodando em localhost:4200)
-        config.setAllowedOrigins(List.of("http://localhost:4200"));
+        config.setAllowedOrigins(List.of("http://localhost:4200", "https://angular-financa-19.vercel.app"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // Se estiver usando autenticação com cookie ou token
