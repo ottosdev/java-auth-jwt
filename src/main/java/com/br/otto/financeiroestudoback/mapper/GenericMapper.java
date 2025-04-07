@@ -1,6 +1,5 @@
 package com.br.otto.financeiroestudoback.mapper;
 
-import com.br.otto.financeiroestudoback.dto.ClienteDTO;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 

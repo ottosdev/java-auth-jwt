@@ -1,0 +1,2 @@
+ALTER TABLE tb_cliente
+    ADD ultimo_acesso TIMESTAMP WITHOUT TIME ZONE;

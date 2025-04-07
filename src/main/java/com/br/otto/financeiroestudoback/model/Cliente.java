@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -25,6 +26,7 @@ public class Cliente {
     private String email;
     private String senha;
     private String telefone;
+    private LocalDateTime ultimoAcesso;
 
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     private Endereco endereco;

@@ -30,8 +30,8 @@ public class CategoriaController {
         return categoriaService.listarCategorias();
     }
 
-    @DeleteMapping
-    public void deletarCategoria(@RequestParam UUID id) {
+    @DeleteMapping("/{id}")
+    public void deletarCategoria(@PathVariable UUID id) {
         categoriaService.deletarCategoria(id);
     }
 }

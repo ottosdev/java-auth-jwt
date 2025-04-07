@@ -21,7 +21,12 @@ public class TokenService {
     public String generateToken(Cliente cliente) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secreet);
-            String token = JWT.create().withIssuer("login-auth-api").withSubject(cliente.getEmail())
+            String token = JWT.create().withIssuer("login-auth-api").
+                    withSubject(cliente.getEmail())
+                    .withClaim("id", cliente.getId().toString())
+                    .withClaim("nome", cliente.getNome())
+                    .withClaim("cpf", cliente.getCpf())
+                    .withClaim("dataExpiracao", cliente.getUltimoAcesso().toString())
                     .withExpiresAt(getTokenExpires())
                     .sign(algorithm);
             return token;
