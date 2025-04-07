@@ -1,19 +1,18 @@
 # Etapa de build
-FROM ubuntu:latest as build
+FROM openjdk:21-jdk-slim as build
 
-RUN apt-get update
-RUN apt-get install -y openjdk-17-jdk maven
+RUN apt-get update && apt-get install -y maven
 
 WORKDIR /app
 COPY . .
 
 RUN mvn clean install
 
-# Etapa final
+# Etapa final (pode usar a mesma imagem se quiser)
 FROM openjdk:21-jdk-slim
 
-EXPOSE 8080
-
+WORKDIR /app
 COPY --from=build /app/target/financeiro-estudo-back-0.0.1-SNAPSHOT.jar app.jar
 
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
