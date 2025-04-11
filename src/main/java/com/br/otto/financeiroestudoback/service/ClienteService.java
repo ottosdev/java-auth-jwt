@@ -55,29 +55,6 @@ public class ClienteService {
         return clienteMapper.toDTO(cliente);
     }
 
-//    @Transactional
-//    public AtualizarClienteDTO atualizarCliente(AtualizarClienteDTO clienteDTO) {
-//        Cliente clienteExistente = clienteRepository.findByEmail(clienteDTO.email())
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cliente não existe!"));
-//
-//
-//        if (clienteExistente.getEndereco() != null) {
-//            clienteExistente.getEndereco().setCliente(clienteExistente);
-//        }
-//
-//        if(clienteExistente.getEndereco() == null) {
-//            Endereco endereco = enderecoMapper.toEntity(clienteDTO.endereco());
-//            endereco.setCliente(clienteExistente);
-//            clienteExistente.setEndereco(endereco);
-//        }
-//
-//        atualizarClienteMapper.atualizarEntidadeComDTO(clienteDTO, clienteExistente);
-//        clienteExistente = clienteRepository.save(clienteExistente);
-//
-//        return atualizarClienteMapper.toDTO(clienteExistente);
-//    }
-
-
     public ClienteDTO buscarCliente(UUID id) {
         Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado."));
 

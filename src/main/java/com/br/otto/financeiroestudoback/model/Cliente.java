@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -30,4 +31,7 @@ public class Cliente {
 
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     private Endereco endereco;
+
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    private List<Transacao> transacoes;
 }

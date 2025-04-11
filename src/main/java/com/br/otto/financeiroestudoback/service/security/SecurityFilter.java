@@ -7,12 +7,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.management.RuntimeErrorException;
 import java.io.IOException;
 import java.util.Collections;
 
@@ -30,13 +33,15 @@ public class SecurityFilter extends OncePerRequestFilter {
         var login = tokenService.validateToken(token);
 
         if(login != null){
-            Cliente cliente = clienteRepository.findByEmail(login).orElseThrow(() -> new RuntimeException("User Not Found"));
+            Cliente cliente = clienteRepository.findByEmail(login).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"User Not Found"));
             var authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
             var authentication = new UsernamePasswordAuthenticationToken(cliente, null, authorities);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         filterChain.doFilter(request, response);
     }
+
+
 
     private String recoverToken(HttpServletRequest request){
         var authHeader = request.getHeader("Authorization");

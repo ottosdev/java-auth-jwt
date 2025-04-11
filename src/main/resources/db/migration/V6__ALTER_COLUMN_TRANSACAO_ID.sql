@@ -1,0 +1,6 @@
+ALTER TABLE tb_transacao
+DROP
+COLUMN id;
+
+ALTER TABLE tb_transacao
+    ADD id UUID NOT NULL PRIMARY KEY;

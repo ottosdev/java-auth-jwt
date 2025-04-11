@@ -13,11 +13,11 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // permite para todas as rotas
+                registry.addMapping("/**")
                         .allowedOrigins("http://localhost:4200",  "https://angular-financa-19.vercel.app")// frontend Angular
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true); // se estiver usando cookies/autenticação
+                        .allowCredentials(true);
             }
         };
     }

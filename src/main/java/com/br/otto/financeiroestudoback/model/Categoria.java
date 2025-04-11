@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -25,4 +26,7 @@ public class Categoria {
 
     @Enumerated(EnumType.STRING)
     private TipoCategoria tipo;
+
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.LAZY)
+    private List<Transacao> transacoes;
 }
