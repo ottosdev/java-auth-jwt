@@ -4,6 +4,7 @@ import com.br.otto.financeiroestudoback.dto.transacao.TransacaoRequestDTO;
 import com.br.otto.financeiroestudoback.dto.transacao.TransacaoResposeDTO;
 import com.br.otto.financeiroestudoback.dto.transacao.TransacoResponseDTO;
 import com.br.otto.financeiroestudoback.service.TransacaoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class TransacaoController {
     private final TransacaoService transacaoService;
 
     @PostMapping
-    public ResponseEntity<TransacoResponseDTO> salvarTransacao(@RequestBody  TransacaoRequestDTO dto) {
+    public ResponseEntity<TransacoResponseDTO> salvarTransacao(@RequestBody @Valid TransacaoRequestDTO dto) {
         return ResponseEntity.ok(transacaoService.salvar(dto));
     }
     

@@ -1,5 +1,6 @@
 package com.br.otto.financeiroestudoback.model;
 
+import com.br.otto.financeiroestudoback.enumaration.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,4 +35,7 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Transacao> transacoes;
+
+//    @Enumerated(EnumType.STRING)
+//    private Role role;
 }
